@@ -5,11 +5,13 @@ using UnityEngine.Events;
 namespace HoloRater
 { 
     public class WinStoreSubmission : RatingSubmissionHandler {
-                
+
+        public string AppID = "<<Enter your windows AppID here>>";
+
         public override void SubmitRating(RatingWindow window, RatingWidget widget)
         {
 #if WINDOWS_UWP
-            var uri = new System.Uri("ms-windows-store:reviewapp?appid=9WZDNCRFJ140");
+            var uri = new System.Uri("ms-windows-store:reviewapp?appid=" + AppID);
             var op = Windows.System.Launcher.LaunchUriAsync(uri);
             StartCoroutine(WaitForLauncher(window, op));
 #else
