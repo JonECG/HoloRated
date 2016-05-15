@@ -6,20 +6,37 @@ namespace HoloRater
 { 
     public class RatingEntry : MonoBehaviour {
 
-        [SerializeField]
-        private UnityEvent _onHoverEnter;
-        [SerializeField]
-        private UnityEvent _onHoverExit;
-        [SerializeField]
-        private UnityEvent _onSelected;
-        [SerializeField]
-        private UnityEvent _onDeselected;
+        private RatingWidget _widget = null;
+        private RatingWidget Widget
+        {
+            get
+            {
+                if ( !_widget )
+                {
+                    _widget = GetComponentInParent<RatingWidget>();
+                }
+                return _widget;
+            }
+        }
 
-        public UnityEvent OnHoverEnter { get { return _onHoverEnter; } }
-        public UnityEvent OnHoverExit { get { return _onHoverExit; } }
-        public UnityEvent OnSelected { get { return _onSelected; } }
-        public UnityEvent OnDeselected { get { return _onDeselected; } }
-        
+        [SerializeField]
+        private int _ratingValue = 0;
+        public int? RatingValue
+        {
+            get
+            {
+                if (_ratingValue != 0)
+                    return _ratingValue;
+                else
+                    return null;
+            }
+        }
+
+        public void DoSetRating()
+        {
+            Widget.SetSelected(this);
+        }
+
     }
 
 }

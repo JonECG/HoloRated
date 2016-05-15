@@ -18,12 +18,15 @@ namespace HoloRater
         private RatingWidget _ratingWidget;
 
         [SerializeField]
-        private Button _button;
+        private RatingSubmissionHandler _submissionHandler;
+
+        [SerializeField]
+        private Text _errorTextContainer = null;
+        
 
 	    // Use this for initialization
 	    void Start () {
             _onShown.Invoke();
-            _button.onClick.AddListener(Submit);
 	    }
 	
         public void Dismiss()
@@ -33,7 +36,26 @@ namespace HoloRater
 
         public void Submit()
         {
-            _onSubmitted.Invoke();
+            if(_submissionHandler)
+            {
+                _submissionHandler.SubmitRating(this, _ratingWidget);
+            }
+        }
+
+        public void ProcessSubmissionResults( RatingSubmissionHandler.SubmissionResult results )
+        {
+            Debug.Break();
+            if( results.Succeeded )
+            {
+                _onSubmitted.Invoke();
+            }
+            else
+            {
+                if( _errorTextContainer )
+                {
+                    _errorTextContainer.text = results.ErrorMessage;
+                }
+            }
         }
     }
 
