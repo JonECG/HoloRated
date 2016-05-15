@@ -32,6 +32,7 @@ namespace HoloRater
         public void Dismiss()
         {
             _onDismissed.Invoke();
+            GameObject.Destroy(gameObject, 1);
         }
 
         public void Submit()
@@ -44,7 +45,6 @@ namespace HoloRater
 
         public void ProcessSubmissionResults( RatingSubmissionHandler.SubmissionResult results )
         {
-            Debug.Break();
             if( results.Succeeded )
             {
                 _onSubmitted.Invoke();

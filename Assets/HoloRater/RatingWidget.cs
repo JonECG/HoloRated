@@ -38,10 +38,10 @@ namespace HoloRater
                         break;
                     }
                 }
-
+                
                 for( int i = 0; i < _ratingEmblems.Length; i++ )
                 {
-                    if( rating.HasValue && ( i == rating - 1 ) || (_autoSelectLower && i < rating ) )
+                    if( rating.HasValue && ( ( i == rating - 1 ) || (_autoSelectLower && i < rating ) ) )
                     {
                         _ratingEmblems[i].GetComponent<RatingInteractible>().OnSelect();
                     }

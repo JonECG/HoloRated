@@ -13,7 +13,7 @@ namespace HoloRater
             var op = Windows.System.Launcher.LaunchUriAsync(uri);
             StartCoroutine(WaitForLauncher(window, op));
 #else
-            window.ProcessSubmissionResults(new SubmissionResult { Succeeded = false, ErrorMessage = "Cannot Windows Store on platforms other than a UWP application (this includes the unity editor)" });
+            window.ProcessSubmissionResults(new SubmissionResult { Succeeded = false, ErrorMessage = "Cannot open Windows Store on when not in a UWP application" });
 #endif
         }
 
