@@ -6,7 +6,7 @@ HoloRater is a set of functionality for Unity to assist in the development of ap
 
 ### Video Pitch
 
-TBD
+[![Final Presnetation: HoloRated](http://video.ch9.ms/ch9/9c0d/74013abb-2bc1-4c57-965b-ea7e10779c0d/tj16holo_960.jpg)](https://channel9.msdn.com/Events/ToolJam/2016/HoloRated "Final Presnetation: HoloRated")
 
 ## How did this project come about?
 
